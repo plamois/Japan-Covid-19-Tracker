@@ -1,16 +1,7 @@
 import React from 'react';
-import { Map, TileLayer, Marker } from 'react-leaflet';
+import { Map, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import { divIcon } from 'leaflet';
 
-/*
-1. 1-100 => pink, super very small
-2. 101-500 => pink, very small
-3. 501-1000 => pink, small
-4. 1001-5000 => purple, normal
-5. 5001-10000 => purple, big
-6. 10001-50000 => red, very big
-7. 50000 up => red, super very big
-*/
 const icons = {
     xxSmall: divIcon({className: 'marker-icon pink', iconSize: [12, 12]}),
     xSmall: divIcon({className: 'marker-icon pink', iconSize: [16, 16]}),
@@ -26,7 +17,7 @@ function MapView(props) {
 
     const markerElements = locationArray.map(location => {
         const {
-            id, name_en, name_ja,
+            id, name_en,
             lat, lng,
             cases
         } = location;
@@ -58,17 +49,19 @@ function MapView(props) {
                 position={[lat, lng]}
                 icon={markerIcon} 
                 onclick={() => onSelectMarker(id)} >
+                <Popup>{name_en}</Popup>
             </Marker>
         );
     });
 
     return (
-        <Map className="map-view" center={mapCenter} zoom={5}>
+        <Map className="map-view" center={mapCenter} zoom={5} minZoom= '4' maxZoom='8'>
             <TileLayer
-                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                attribution='Created by <a href="https://www.peterlamois.com">Peter LaMois</a> | &amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {markerElements}
+            <ZoomControl position='topright'/>
         </Map>
     );
 }

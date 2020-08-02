@@ -8,10 +8,10 @@ function DetailsView(props) {
         onClickClose
     } = props;
 
-    var title = name_en + ' (' + name_ja + ')';
+    const title = name_en + ' (' + name_ja + ')';
 
     const totalElements = totalKeyArray.map(key => {
-        const count = [key];
+        const count = props.location[key];
         return (
             <div key={key} className="columns">
                 <div className="column">

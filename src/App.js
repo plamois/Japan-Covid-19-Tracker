@@ -11,7 +11,7 @@ const api = 'https://covid19-japan-web-api.now.sh/api/v1/prefectures';
 function App() {
   const [locationArray, setLocationArray] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
-  const [mapCenter, setMapCenter]= useState([35, 130]);
+  const [mapCenter, setMapCenter]= useState([35, 140]);
   
   function sortedLocationArray(locations) {
     return [...locations].sort((location1, location2) => {

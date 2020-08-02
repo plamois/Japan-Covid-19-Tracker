@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tracker App",
+  "name": "Japan Covid-19 Tracker App",
   "icons": [
     {
       "src": "favicon.ico",

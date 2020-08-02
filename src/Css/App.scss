@@ -1,6 +1,10 @@
 @import './Vars';
 @import '~bulma/bulma.sass';
 
+html, body {
+    overflow: hidden;
+}
+
 // List view
 
 .list-view {
@@ -27,7 +31,17 @@
     background-color: white;
     border-bottom: 1px solid $grey-lighter;
     flex-shrink: 0;
+    top: 0;
     padding: 20px;
+    line-height: 1em;
+    text-transform: capitalize;
+}
+
+.list-view-total h2 {
+    background-color: white;
+    flex-shrink: 0;
+    bottom: 0;
+    top: 1em;
     text-transform: capitalize;
 }
 
@@ -75,7 +89,7 @@
 // Map view
 
 .map-view {
-    width: 100vw;
+    width: 100%vw;
     height: 100vh;
     z-index: 10;
 }
@@ -105,15 +119,16 @@
 
 .details-view {
     background-color: white;
-    border-top: 10px solid $black-ter;
+    border-top: 7px solid $black-ter;
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
     width: 322px;
     padding: 20px;
     position: fixed;
-    left: 50%;
+    left: 70%;
     bottom: 0px;
     z-index: 20;
     transform: translateX(-50%);
+    text-transform: capitalize;
 }
 
 .details-view-close {
